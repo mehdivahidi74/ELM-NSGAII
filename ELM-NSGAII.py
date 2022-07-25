@@ -23,29 +23,31 @@ if Model == 'Transmission Coefficient':
         B = st.sidebar.slider('Chamber Width (B)',14 , 224 , 40)
         IH = st.sidebar.slider('Impermeable Height (IH)',4 , 16 , 12)
         H = st.sidebar.slider('Incident Wave Height (H)',4 ,12 , 5)
-        T = st.sidebar.slider('Wave Period (T)',0.6 , 2.4 , 0.9 , step = 0.1)
-        def func(y , T):
-            eq = [(981/(2*np.pi)) * T**2 * np.tanh((2*np.pi/(y[0])) * 40 )- y[0]]
-            return eq
-        L = st.sidebar.slider('Wavelength (L)', (fsolve(func , [1] , T).tolist())[0])
-        return B , IH , H , L , T
-    B , IH , H , L , T = user_inputs_EX()
-    MaxEX = [('B' , 224) , ('IH' , 16) , ('H' , 12) , ('L' , 453.1961) , ('T' , 2.4)]
-    MinEX = [('B' , 14) , ('IH' , 4) , ('H' , 4) , ('L' , 56.1925) , ('T' , 0.6)]
-    st.write('B (cm): ' ,"{:.2f}".format(B) )
-    st.write('IH (cm): ' ,"{:.2f}".format(IH) )
-    st.write('H (cm): ' ,"{:.2f}".format(H) )
-    st.write('L (cm): ' ,"{:.2f}".format(L) )
-    st.write('T (s): ' ,"{:.2f}".format(T))
-    X = np.array([[B,IH,H,L,T]])
+        L = st.sidebar.slider('Wavelength (L)',56.0 , 454.0 , 453.0 , step = 0.1)
+        h = st.sidebar.slider('Water depth (cm)',10 , 100 , 40 , step = 10)
+        # def func(y , T):
+        #     eq = [(981/(2*np.pi)) * T**2 * np.tanh((2*np.pi/(y[0])) * 40 )- y[0]]
+        #     return eq
+        # L = st.sidebar.slider('Wavelength (L)', (fsolve(func , [1] , T).tolist())[0])
+        return B , IH , H , L ,h
+    B , IH , H , L , h = user_inputs_EX()
+    MaxEX = [('B / h' , 5.605) , ('IH / h' , 0.4) , ('H / L' , 0.071184) , ('H / h' , 0.3)]
+    MinEX = [('B / h' , 0.35) , ('IH / h' , 0.1) , ('H / L' , 0.022066) , ('H / h' , 0.1) ]
+    st.subheader('Non-dimensional Inputs Variables')
+    st.write('B / h: ' ,"{:.2f}".format(B/h) )
+    st.write('IH / h: ' ,"{:.2f}".format(IH/h) )
+    st.write('H / h: ' ,"{:.2f}".format(H/h) )
+    st.write('h / L (cm): ' ,"{:.2f}".format(h/L) )
+   
+    X = np.array([[B/h,IH/h,H/L,H/h]])
     for i in range (np.shape(X)[0]):
         for j in range (np.shape(X)[1]):
             X[i][j] = (X[i][j] - MinEX[j][1])/ (MaxEX[j][1] - MinEX[j][1])
     #Evaluate Ct in Experimental Scale
-    WEXCt = EXCt.iloc[0:20 , 0:6]
+    WEXCt = EXCt.iloc[0:20 , 0:5]
     WEXCt = np.transpose(WEXCt)
     WEXCt = np.array(WEXCt)
-    BetaEXCt = EXCt.iloc[0:21 , 6:7]
+    BetaEXCt = EXCt.iloc[0:21 , 5:6]
     BetaEXCt = np.array(BetaEXCt)
     one = np.ones((np.shape(X)[0] , 1))*-1
     X = np.append(one,X , axis = 1)
@@ -74,31 +76,32 @@ if Model == 'Reflection Coefficient':
         B = st.sidebar.slider('Chamber Width (B)',14 , 224 , 40)
         IH = st.sidebar.slider('Impermeable Height (IH)',4 , 16 , 12)
         H = st.sidebar.slider('Incident Wave Height (H)',4 ,12 , 5)
-        T = st.sidebar.slider('Wave Period (T)',0.6 , 2.4 , 0.9 , step = 0.1)
-        def func(y , T):
-            eq = [(981/(2*np.pi)) * T**2 * np.tanh((2*np.pi/(y[0])) * 40 )- y[0]]
-            return eq
-        L = st.sidebar.slider('Wavelength (L)', (fsolve(func , [1] , T).tolist())[0])
-        return B , IH , H , L , T
-    B , IH , H , L , T = user_inputs_EX()
-    st.write('B (cm): ' ,"{:.2f}".format(B) )
-    st.write('IH (cm): ' ,"{:.2f}".format(IH) )
-    st.write('H (cm): ' ,"{:.2f}".format(H) )
-    st.write('L (cm): ' ,"{:.2f}".format(L) )
-    st.write('T (s): ' ,"{:.2f}".format(T))
-    MaxEX = [('B' , 224) , ('IH' , 16) , ('H' , 12) , ('L' , 453.1961) , ('T' , 2.4)]
-    MinEX = [('B' , 14) , ('IH' , 4) , ('H' , 4) , ('L' , 56.1925) , ('T' , 0.6)]
-    X = np.array([[B,IH,H,L,T]])
+        L = st.sidebar.slider('Wavelength (L)',56.0 , 454.0 , 453.0 , step = 0.1)
+        h = st.sidebar.slider('Water depth (cm)',10 , 100 , 40 , step = 10)
+        # def func(y , T):
+        #     eq = [(981/(2*np.pi)) * T**2 * np.tanh((2*np.pi/(y[0])) * 40 )- y[0]]
+        #     return eq
+        # L = st.sidebar.slider('Wavelength (L)', (fsolve(func , [1] , T).tolist())[0])
+        return B , IH , H , L , h
+    B , IH , H , L , h = user_inputs_EX()
+    MaxEX = [('B / h' , 5.605) , ('IH / h' , 0.4) , ('H / L' , 0.071184) , ('H / h' , 0.3)]
+    MinEX = [('B / h' , 0.35) , ('IH / h' , 0.1) , ('H / L' , 0.022066) , ('H / h' , 0.1) ]
+    st.subheader('Non-dimensional Inputs Variables')
+    st.write('B / h: ' ,"{:.2f}".format(B/h) )
+    st.write('IH / h: ' ,"{:.2f}".format(IH/h) )
+    st.write('H / h: ' ,"{:.2f}".format(H/h) )
+    st.write('h / L (cm): ' ,"{:.2f}".format(h/L) )
+    X = np.array([[B/h,IH/h,H/L,H/h]])
     for i in range (np.shape(X)[0]):
         for j in range (np.shape(X)[1]):
             X[i][j] = (X[i][j] - MinEX[j][1])/ (MaxEX[j][1] - MinEX[j][1])
     #Evaluate Ct in Experimental Scale
     one = np.ones((np.shape(X)[0] , 1))*-1
     X = np.append(one,X , axis = 1)
-    WEXCr = EXCr.iloc[0:20 , 0:6]
+    WEXCr = EXCr.iloc[0:20 , 0:5]
     WEXCr = np.transpose(WEXCr)
     WEXCr = np.array(WEXCr)
-    BetaEXCr = EXCr.iloc[0:21 , 6:7]
+    BetaEXCr = EXCr.iloc[0:21 , 5:6]
     BetaEXCr = np.array(BetaEXCr)
     H = np.matmul(X , WEXCr)
     H = np.tanh(H)

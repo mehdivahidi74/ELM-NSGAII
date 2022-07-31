@@ -20,11 +20,12 @@ M = 20
 Model = st.selectbox('Select Output' , ['Transmission Coefficient' , 'Reflection Coefficient'])
 if Model == 'Transmission Coefficient':
     def user_inputs_EX():
+        st.subheader('Select Variable (cm)')
         B = st.sidebar.slider('Chamber Width (B)',14 , 224 , 40)
         IH = st.sidebar.slider('Impermeable Height (IH)',4 , 16 , 12)
         H = st.sidebar.slider('Incident Wave Height (H)',4 ,12 , 8)
         L = st.sidebar.slider('Wavelength (L)',56.0 , 454.0 , 283.59 , step = 0.1)
-        h = st.sidebar.slider('Water depth (cm)',10 , 100 , 40 , step = 10)
+        h = st.sidebar.slider('Water depth (h)',10 , 100 , 40 , step = 10)
         # def func(y , T):
         #     eq = [(981/(2*np.pi)) * T**2 * np.tanh((2*np.pi/(y[0])) * 40 )- y[0]]
         #     return eq
@@ -37,7 +38,7 @@ if Model == 'Transmission Coefficient':
     st.write('B / h: ' ,"{:.2f}".format(B/h) )
     st.write('IH / h: ' ,"{:.2f}".format(IH/h) )
     st.write('H / h: ' ,"{:.2f}".format(H/h) )
-    st.write('h / L (cm): ' ,"{:.2f}".format(h/L) )
+    st.write('h / L: ' ,"{:.2f}".format(h/L) )
    
     X = np.array([[B/h,IH/h,H/L,H/h]])
     for i in range (np.shape(X)[0]):
@@ -73,11 +74,12 @@ if Model == 'Transmission Coefficient':
 #     st.write(PredCr) """
 if Model == 'Reflection Coefficient':
     def user_inputs_EX():
+        st.subheader('Select Variable (cm)')
         B = st.sidebar.slider('Chamber Width (B)',14 , 224 , 40)
         IH = st.sidebar.slider('Impermeable Height (IH)',4 , 16 , 12)
         H = st.sidebar.slider('Incident Wave Height (H)',4 ,12 , 8)
         L = st.sidebar.slider('Wavelength (L)',56.0 , 454.0 , 283.59 , step = 0.1)
-        h = st.sidebar.slider('Water depth (cm)',10 , 100 , 40 , step = 10)
+        h = st.sidebar.slider('Water depth (h)',10 , 100 , 40 , step = 10)
         # def func(y , T):
         #     eq = [(981/(2*np.pi)) * T**2 * np.tanh((2*np.pi/(y[0])) * 40 )- y[0]]
         #     return eq
@@ -90,7 +92,7 @@ if Model == 'Reflection Coefficient':
     st.write('B / h: ' ,"{:.2f}".format(B/h) )
     st.write('IH / h: ' ,"{:.2f}".format(IH/h) )
     st.write('H / h: ' ,"{:.2f}".format(H/h) )
-    st.write('h / L (cm): ' ,"{:.2f}".format(h/L) )
+    st.write('h / L: ' ,"{:.2f}".format(h/L) )
     X = np.array([[B/h,IH/h,H/L,H/h]])
     for i in range (np.shape(X)[0]):
         for j in range (np.shape(X)[1]):

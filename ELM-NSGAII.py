@@ -111,7 +111,7 @@ if Model == 'Reflection Coefficient':
     H = np.append(one,H , axis = 1)
     PredCr = np.matmul(H , BetaEXCr)
     st.subheader('Reflection Coefficient Prediction (Cr)')
-     st.subheader("{:.2f}".format(PredCr.tolist()[0][0])
+    st.subheader("{:.2f}".format(PredCr.tolist()[0][0])
 # """     def user_inputs_Real():
 #         B = st.sidebar.slider('Chamber Width (B)',3.5 , 56.0 , 10.0 , step = 0.1)
 #         IH = st.sidebar.slider('Impermeable Height (IH)',1 , 4 , 3)

@@ -58,7 +58,7 @@ if Model == 'Transmission Coefficient':
     H = np.append(one,H , axis = 1)
     PredCt = np.matmul(H , BetaEXCt)
     st.subheader('Transmission Coefficient Prediction (Ct)')
-    st.write("{:.2f}".format(PredCt.tolist()[0][0]) , textColor="#fafafa")
+    st.subheader("{:.2f}".format(PredCt.tolist()[0][0])
     #Evaluate Cr in Experimental Scale
 # """     WEXCr = EXCr.iloc[0:20 , 0:6]
 #     WEXCr = np.transpose(WEXCr)
@@ -111,7 +111,7 @@ if Model == 'Reflection Coefficient':
     H = np.append(one,H , axis = 1)
     PredCr = np.matmul(H , BetaEXCr)
     st.subheader('Reflection Coefficient Prediction (Cr)')
-    st.write("{:.2f}".format(PredCr.tolist()[0][0]) , props="color:red;") 
+     st.subheader("{:.2f}".format(PredCr.tolist()[0][0])
 # """     def user_inputs_Real():
 #         B = st.sidebar.slider('Chamber Width (B)',3.5 , 56.0 , 10.0 , step = 0.1)
 #         IH = st.sidebar.slider('Impermeable Height (IH)',1 , 4 , 3)

@@ -58,7 +58,7 @@ if Model == 'Transmission Coefficient':
     H = np.append(one,H , axis = 1)
     PredCt = np.matmul(H , BetaEXCt)
     st.subheader('Transmission Coefficient Prediction (Ct)')
-    st.write("{:.2f}".format(PredCt.tolist()[0][0]) , props="color:red;")
+    st.write("{:.2f}".format(PredCt.tolist()[0][0]) , textColor="#fafafa")
     #Evaluate Cr in Experimental Scale
 # """     WEXCr = EXCr.iloc[0:20 , 0:6]
 #     WEXCr = np.transpose(WEXCr)

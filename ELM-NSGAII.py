@@ -11,7 +11,7 @@ from colorama import Fore
 EXCt = pd.read_excel('Weight-Ct-EX.xlsx')
 EXCr = pd.read_excel('Weight-Cr-EX.xlsx')
 EXF1 = pd.read_excel('F1Weight.xlsx')
-EXF2 = pd.read_excel('FWeight.xlsx')
+EXF2 = pd.read_excel('F2Weight.xlsx')
 st.subheader("Extreme Learning Machine Optimized Based On NSGA-II ")
 Breakwater = Image.open('Breakwater.PNG')
 st.image(Breakwater)

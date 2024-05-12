@@ -24,7 +24,7 @@ if Model == 'Transmission Coefficient':
     def user_inputs_EX():
         st.subheader('Select Variable (cm)')
         B = st.sidebar.slider('Chamber Width (B)',14 , 224 , 40)
-        IH = st.sidebar.slider('Impermeable Height (IH)',4 , 20 , 12 , step = 0.1)
+        IH = st.sidebar.slider('Impermeable Height (IH)',4.0 , 20.0 , 12 , step = 0.1)
         H = st.sidebar.slider('Incident Wave Height (H)',4 ,15 , 8 , step = 0.01)
         L = st.sidebar.slider('Wavelength (L)',56.0 , 454.0 , 283.59 , step = 0.1)
         h = st.sidebar.slider('Water depth (h)',1 , 100 , 40 , step = 0.01)

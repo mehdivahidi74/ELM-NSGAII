@@ -60,7 +60,7 @@ if Model == 'Transmission Coefficient':
     H = np.append(one,H , axis = 1)
     PredCt = np.matmul(H , BetaEXCt)
     st.subheader('Transmission Coefficient Prediction (Ct)')
-    st.subheader("{:.2f}".format(PredCt.tolist()[0][0]))
+    st.subheader("{:.5f}".format(PredCt.tolist()[0][0]))
     #Evaluate Cr in Experimental Scale
 # """     WEXCr = EXCr.iloc[0:20 , 0:6]
 #     WEXCr = np.transpose(WEXCr)
@@ -113,7 +113,7 @@ if Model == 'Reflection Coefficient':
     H = np.append(one,H , axis = 1)
     PredCr = np.matmul(H , BetaEXCr)
     st.subheader('Reflection Coefficient Prediction (Cr)')
-    st.subheader("{:.2f}".format(PredCr.tolist()[0][0]))
+    st.subheader("{:.5f}".format(PredCr.tolist()[0][0]))
 # """     def user_inputs_Real():
 #         B = st.sidebar.slider('Chamber Width (B)',3.5 , 56.0 , 10.0 , step = 0.1)
 #         IH = st.sidebar.slider('Impermeable Height (IH)',1 , 4 , 3)
@@ -197,7 +197,7 @@ if Model == 'Maximum Pressure Force Perforated Front Wall':
     H = np.append(one,H , axis = 1)
     PredF1 = np.matmul(H , BetaEXF1)
     st.subheader('Maximum Pressure Force Perforated Front Wall (F*1)')
-    st.subheader("{:.2f}".format(PredF1.tolist()[0][0]))
+    st.subheader("{:.5f}".format(PredF1.tolist()[0][0]))
     
     
 if Model == 'Maximum Pressure Force Perforated Back Wall':
@@ -239,7 +239,7 @@ if Model == 'Maximum Pressure Force Perforated Back Wall':
     H = np.append(one,H , axis = 1)
     PredF2 = np.matmul(H , BetaEXF2)
     st.subheader('Maximum Pressure Force Perforated Back Wall (F*2)')
-    st.subheader("{:.2f}".format(PredF2.tolist()[0][0]))
+    st.subheader("{:.5f}".format(PredF2.tolist()[0][0]))
     
     
     

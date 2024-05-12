@@ -78,18 +78,18 @@ if Model == 'Reflection Coefficient':
     def user_inputs_EX():
         st.subheader('Select Variable (cm)')
         B = st.sidebar.slider('Chamber Width (B)',14 , 224 , 40)
-        IH = st.sidebar.slider('Impermeable Height (IH)',4 , 20 , 12,step = 0.1)
-        H = st.sidebar.slider('Incident Wave Height (H)',4 ,15 , 8,step = 0.01)
+        IH = st.sidebar.slider('Impermeable Height (IH)',4.0 , 20.0 , 12.0 , step = 0.1)
+        H = st.sidebar.slider('Incident Wave Height (H)',4.00 ,15.00 , 8.00 , step = 0.01)
         L = st.sidebar.slider('Wavelength (L)',56.0 , 454.0 , 283.59 , step = 0.1)
-        h = st.sidebar.slider('Water depth (h)',1 , 100 , 40 , step = 0.01)
+        h = st.sidebar.slider('Water depth (h)',1.00 , 100.00 , 40.00 , step = 0.01)
         # def func(y , T):
         #     eq = [(981/(2*np.pi)) * T**2 * np.tanh((2*np.pi/(y[0])) * 40 )- y[0]]
         #     return eq
         # L = st.sidebar.slider('Wavelength (L)', (fsolve(func , [1] , T).tolist())[0])
         return B , IH , H , L , h
     B , IH , H , L , h = user_inputs_EX()
-    MaxEX = [('B / h' , 5.605) , ('IH / h' , 0.4) , ('H / L' , 0.071184) , ('H / h' , 0.3)]
-    MinEX = [('B / h' , 0.35) , ('IH / h' , 0.1) , ('H / L' , 0.022066) , ('H / h' , 0.1) ]
+    MaxEX = [('B / h' , 5.605) , ('IH / h' , 0.400000) , ('H / L' , 0.071184) , ('H / h' , 0.300000)]
+    MinEX = [('B / h' , 0.35) , ('IH / h' , 0.100000) , ('H / L' , 0.022066) , ('H / h' , 0.100000) ]
     st.subheader('Non-dimensional Inputs Variables')
     st.write('B / h: ' ,"{:.5f}".format(B/h) )
     st.write('IH / h: ' ,"{:.5f}".format(IH/h) )
@@ -162,18 +162,18 @@ if Model == 'Maximum Pressure Force Perforated Front Wall':
     def user_inputs_EX():
         st.subheader('Select Variable (cm)')
         B = st.sidebar.slider('Chamber Width (B)',14 , 224 , 40)
-        IH = st.sidebar.slider('Impermeable Height (IH)',4 , 20 , 12,step = 0.1)
-        H = st.sidebar.slider('Incident Wave Height (H)',4 ,15 , 8,step = 0.01)
+        IH = st.sidebar.slider('Impermeable Height (IH)',4.0 , 20.0 , 12.0 , step = 0.1)
+        H = st.sidebar.slider('Incident Wave Height (H)',4.00 ,15.00 , 8.00 , step = 0.01)
         L = st.sidebar.slider('Wavelength (L)',56.0 , 454.0 , 283.59 , step = 0.1)
-        h = st.sidebar.slider('Water depth (h)',1 , 100 , 40 , step = 0.01)
+        h = st.sidebar.slider('Water depth (h)',1.00 , 100.00 , 40.00 , step = 0.01)
         # def func(y , T):
         #     eq = [(981/(2*np.pi)) * T**2 * np.tanh((2*np.pi/(y[0])) * 40 )- y[0]]
         #     return eq
         # L = st.sidebar.slider('Wavelength (L)', (fsolve(func , [1] , T).tolist())[0])
         return B , IH , H , L , h
     B , IH , H , L , h = user_inputs_EX()
-    MaxEX = [('B / h' , 5.605) , ('IH / h' , 0.4) , ('H / L' , 0.071184) , ('H / h' , 0.3)]
-    MinEX = [('B / h' , 0.35) , ('IH / h' , 0.1) , ('H / L' , 0.022066) , ('H / h' , 0.1) ]
+    MaxEX = [('B / h' , 5.605) , ('IH / h' , 0.400000) , ('H / L' , 0.071184) , ('H / h' , 0.300000)]
+    MinEX = [('B / h' , 0.35) , ('IH / h' , 0.100000) , ('H / L' , 0.022066) , ('H / h' , 0.100000) ]
     st.subheader('Non-dimensional Inputs Variables')
     st.write('B / h: ' ,"{:.5f}".format(B/h) )
     st.write('IH / h: ' ,"{:.5f}".format(IH/h) )
@@ -204,18 +204,18 @@ if Model == 'Maximum Pressure Force Perforated Back Wall':
     def user_inputs_EX():
         st.subheader('Select Variable (cm)')
         B = st.sidebar.slider('Chamber Width (B)',14 , 224 , 40)
-        IH = st.sidebar.slider('Impermeable Height (IH)',4 , 20 , 12,step = 0.1)
-        H = st.sidebar.slider('Incident Wave Height (H)',4 ,15 , 8,step = 0.01)
+        IH = st.sidebar.slider('Impermeable Height (IH)',4.0 , 20.0 , 12.0 , step = 0.1)
+        H = st.sidebar.slider('Incident Wave Height (H)',4.00 ,15.00 , 8.00 , step = 0.01)
         L = st.sidebar.slider('Wavelength (L)',56.0 , 454.0 , 283.59 , step = 0.1)
-        h = st.sidebar.slider('Water depth (h)',1 , 100 , 40 , step = 0.01)
+        h = st.sidebar.slider('Water depth (h)',1.00 , 100.00 , 40.00 , step = 0.01)
         # def func(y , T):
         #     eq = [(981/(2*np.pi)) * T**2 * np.tanh((2*np.pi/(y[0])) * 40 )- y[0]]
         #     return eq
         # L = st.sidebar.slider('Wavelength (L)', (fsolve(func , [1] , T).tolist())[0])
         return B , IH , H , L , h
     B , IH , H , L , h = user_inputs_EX()
-    MaxEX = [('B / h' , 5.605) , ('IH / h' , 0.4) , ('H / L' , 0.071184) , ('H / h' , 0.3)]
-    MinEX = [('B / h' , 0.35) , ('IH / h' , 0.1) , ('H / L' , 0.022066) , ('H / h' , 0.1) ]
+    MaxEX = [('B / h' , 5.605) , ('IH / h' , 0.400000) , ('H / L' , 0.071184) , ('H / h' , 0.300000)]
+    MinEX = [('B / h' , 0.35) , ('IH / h' , 0.100000) , ('H / L' , 0.022066) , ('H / h' , 0.100000) ]
     st.subheader('Non-dimensional Inputs Variables')
     st.write('B / h: ' ,"{:.5f}".format(B/h) )
     st.write('IH / h: ' ,"{:.5f}".format(IH/h) )
